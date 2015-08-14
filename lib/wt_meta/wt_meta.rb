@@ -56,7 +56,7 @@ module WtMeta
         return if @meta[:image].blank?
         tags = []
 
-        begin
+        #begin
           url = @meta[:image]
           size = @cache[url] || FastImage.size(url)
 
@@ -65,8 +65,9 @@ module WtMeta
           tags << view.tag(:meta, property: 'og:image', content: url)
           tags << view.tag(:meta, property: 'og:image:width', content: size[0])
           tags << view.tag(:meta, property: 'og:image:height', content: size[1])
-        rescue => e
-        end
+        #rescue => e
+
+        #end
 
         tags
       end
