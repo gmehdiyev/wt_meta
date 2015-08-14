@@ -1,5 +1,6 @@
 module WtMeta
    class Meta
+      @cache = {}
 
       def initialize
         @meta= {
@@ -57,7 +58,9 @@ module WtMeta
 
         begin
           url = @meta[:image]
-          size = FastImage.size(url)
+          size = @cache[url] || FastImage.size(url)
+
+          @cache[url] = size
 
           tags << view.tag(:meta, property: 'og:image', content: url)
           tags << view.tag(:meta, property: 'og:image:width', content: size[0])
