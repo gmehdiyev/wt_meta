@@ -1,8 +1,9 @@
 module WtMeta
    class Meta
-      @cache = {}
+
 
       def initialize
+        @cache = {}
         @meta= {
           separator: ' | ',
           site: nil,
