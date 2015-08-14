@@ -59,7 +59,7 @@ module WtMeta
 
         begin
           url = @meta[:image]
-          size = @cache.has_key?(url) || FastImage.size(url)
+          size = @cache.has_key?(url) ? @cache[url] : FastImage.size(url)
 
           @cache[url] = size
 
