@@ -24,5 +24,9 @@ module WtMeta
       self.meta.set(:image, image)
     end
 
+    def keywords(keywords=nil)
+      self.meta.set(:keywords, keywords)
+    end
+
    end
 end
