@@ -24,7 +24,7 @@ module WtMeta
       end
 
       def title(view)
-        title = "#{@meta[:title]}#{@meta[:separator]}#{@meta[:site]}"
+        title = [@meta[:title], @meta[:site]].reject(&:nil?).reject(&:empty?).join(@meta[:separator]) #{@meta[:title]}#{@meta[:separator]}#{@meta[:site]}"
         tags = []
         tags << view.content_tag(:title, title)
         tags << view.tag(:meta, property: 'og:title', content: title)
